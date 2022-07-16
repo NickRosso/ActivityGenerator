@@ -1,4 +1,4 @@
-from Process import BaseProcess
+from classes.BaseProcess import BaseProcess
 
 class ProcessActivity(BaseProcess):
     def __init__(self, command, logFormat, commandOptions=""):

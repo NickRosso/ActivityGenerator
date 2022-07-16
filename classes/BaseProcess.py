@@ -1,6 +1,6 @@
 
 from subprocess import Popen, PIPE
-import Logger as Logger
+import classes.Logger as Logger
 import psutil
 from abc import ABC
 

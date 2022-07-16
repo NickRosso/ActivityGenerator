@@ -1,5 +1,5 @@
-from FileActivity import FileActivity
-from ProcessActivity import ProcessActivity
+from classes.FileActivity import FileActivity
+from classes.ProcessActivity import ProcessActivity
 
 if __name__ == "__main__":
     log_format = "CSV"
