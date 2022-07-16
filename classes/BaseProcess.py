@@ -6,7 +6,7 @@ import os
 from abc import ABC
 
 class BaseProcess(ABC):
-    """The process class contains information about a process that can be started the Popen.
+    """The BaseProcess class is a abstract base class that contains information about a process
         Attibutes: 
         - processID: ID of a started process. This is not set till startProcess is called.
         - userName: username the user that started a process
@@ -29,8 +29,8 @@ class BaseProcess(ABC):
         """This class method starts a process and writes a log on the activity"""
         new_process = Popen([self.command, self.commandOptions], stdout=PIPE, stderr=PIPE)
         self.processID = new_process.pid
-        process = psutil.Process(self.processID)
-        self.processName = process.name()
-        self.userName = process.username()
+        process = psutil.Process(self.processID) #overriding BaseProcess processID since we are spawning a new process
+        self.processName = process.name() #overriding BaseProcess processName since we are spawning a new process
+        self.userName = process.username() #overriding BaseProcess username since we are spawning a new process
         logger = Logger.Logger(self.logFormat, self)
         logger.writeLog()

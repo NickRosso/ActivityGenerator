@@ -1,0 +1,78 @@
+{
+    "ProcessActivity":[
+        {
+            "command": "pwd",
+            "commandOptions": "--help"
+        },
+        {
+            "command": "./test_executables/hello_world.sh",
+            "commandOptions": ""
+        },
+        {
+            "command": "ls",
+            "commandOptions": ""
+        }  
+    ],
+    "FileActivity": [
+        {
+            "command": "touch",
+            "commandOptions": "help.txt",
+            "action": "Create"
+        },
+        {
+            "command": "touch",
+            "commandOptions": "test.png",
+            "action": "Create"
+        },
+        {
+            "command": "touch",
+            "commandOptions": "help.csv",
+            "action": "Create"
+        },
+        {
+            "command": "touch",
+            "commandOptions": "help.txt",
+            "action": "Update"
+        },
+        {
+            "command": "touch",
+            "commandOptions": "test.png",
+            "action": "Update"
+        },
+        {
+            "command": "touch",
+            "commandOptions": "help.csv",
+            "action": "Update"
+        },
+        {
+            "command": "rm",
+            "commandOptions": "help.txt",
+            "action": "Delete"
+        },
+        {
+            "command": "rm",
+            "commandOptions": "test.png",
+            "action": "Delete"
+        },
+        {
+            "command": "rm",
+            "commandOptions": "help.csv",
+            "action": "Delete"
+        }
+    ],
+    "NetworkActivity": [
+        {
+            "dest_hostname": "google.com",
+            "dest_port": 80,
+            "protocol": "HTTP",
+            "data": "GET / HTTP/1.0\r\n\r\n"
+        },
+        {
+            "dest_hostname": "google.com",
+            "dest_port": 81,
+            "protocol": "HTTP",
+            "data": "GET / HTTP/1.0\r\n\r\n"
+        }
+    ]
+
+}

@@ -12,7 +12,7 @@ class NetworkActivity(BaseProcess):
         self.dest_hostname=dest_hostname
         self.dest_port=dest_port
         self.protocol = protocol
-        self.data = data
+        self.data = str.encode(data)
         self.sentDataSize = None
         self.receivedDataSize = None
         self.startNetworkActivity()
