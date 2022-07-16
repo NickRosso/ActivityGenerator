@@ -10,10 +10,12 @@ class Logger:
         if self.format == "CSV":
             ActivityLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
             level=ActivityLog.INFO, datefmt='%Y-%m-%d %H:%M:%S')
+            
         elif self.format == "TSV":
             ActivityLog.basicConfig(filename="log.tsv", format='%(asctime)s%(msecs)03d\t%(message)s',
             level=ActivityLog.INFO,
             datefmt='%Y-%m-%d %H:%M:%S')
+
         else:
             ActivityLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
             level=ActivityLog.INFO, datefmt='%Y-%m-%d %H:%M:%S')
@@ -26,6 +28,12 @@ class Logger:
                 ActivityLog.info(f"{self.activity.processID}\t{self.activity.userName}\t{self.activity.command}\t{self.activity.commandOptions}")
         
         elif (type(self.activity).__name__ == "FileActivity"):
+            if self.format == "CSV":
+                ActivityLog.info(f"{self.activity.processID},{self.activity.userName},{self.activity.processName},{self.activity.command} {self.activity.commandOptions},{self.activity.commandOptions},{self.activity.action}")
+            elif self.format == "TSV":
+                ActivityLog.info(f"{self.activity.processID}\t{self.activity.userName}\t{self.activity.processName}\t{self.activity.command} {self.activity.commandOptions}\t{self.activity.commandOptions}\t{self.activity.action}")
+        
+        elif (type(self.activity).__name__ == "NetworkActivity"):
             if self.format == "CSV":
                 ActivityLog.info(f"{self.activity.processID},{self.activity.userName},{self.activity.processName},{self.activity.command} {self.activity.commandOptions},{self.activity.commandOptions},{self.activity.action}")
             elif self.format == "TSV":
