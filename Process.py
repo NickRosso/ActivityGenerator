@@ -21,13 +21,14 @@ class Process():
         self.startProcess()
 
     def startProcess(self):
-        """This class method starts a process"""
+        """This class method starts a process and writes a log on the activity"""
         new_process = Popen([self.processPath, self.processArguments], stdout=PIPE, stderr=PIPE)
-        print(new_process.communicate()) #printing process output
+        print(new_process.communicate()) #printing process output for testing purposes
         self.processID = new_process.pid
         self.writeLog()
 
     def formatLog(self):
+        """This class method sets the log format based on the log format defined in the Process"""
         if self.logFormat == 'CSV':
             processLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
                 level=processLog.INFO,
@@ -41,6 +42,7 @@ class Process():
             return f"{self.processID}\t{self.userName}\t{self.processPath}\t{self.processArguments}"
 
     def writeLog(self):
+        """This method formats the log and writes it based on the proccessLog config"""
         log_content = self.formatLog()
         processLog.info(log_content)
 
