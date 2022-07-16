@@ -4,17 +4,33 @@ import classes.Logger as Logger
 import time
 
 class NetworkActivity(BaseProcess):
-    def __init__(self, logFormat, dest_hostname, protocol, dest_port="80", data=b"", src_port = "None"):
+    """The NetworkActivity class is a extension of the BaseProcess class that adds several attributes
+        Attibutes: 
+        - processID: ID of a started process. This is not set till startProcess is called.
+        - userName: username the user that started a process
+        - command: path of the process to call
+        - commandOptions: any optional arguments to call with path
+        - action: Create, Delete, Update keyword to be stored in log
+        - dest_hostname: destination hostname of the socket connection
+        - dest_port: destination port of the socket connection
+        - src_hostname: source hostname that gets set on successful connection to hostname
+        - src_port: source ip that gets set once the socket is established on client/src
+        - data: byte string of data to send over socket to host
+        - sentDataSize: length of byte string sent
+        - receivedDataSize: length of byte string received from server. This is not set till socket response is recieved.
+        - logFormat: Format for logs generated. This also sets the log destination
+    """
+    def __init__(self, logFormat, dest_hostname, protocol, dest_port="80", data=""):
         super().__init__(data, logFormat)
         #networkActivity specific attributes
         self.src_hostname = None
-        self.src_port=src_port
+        self.src_port=None
         self.dest_hostname=dest_hostname
         self.dest_port=dest_port
         self.protocol = protocol
-        self.data = str.encode(data)
-        self.sentDataSize = None
-        self.receivedDataSize = None
+        self.data = str.encode(data) #encoding data to be used in socket connection
+        self.sentDataSize = 0
+        self.receivedDataSize = 0
         self.startNetworkActivity()
 
     def startNetworkActivity(self):
@@ -35,7 +51,6 @@ class NetworkActivity(BaseProcess):
 
             # Receive some data back.
             chunks = []
-            retry_amount = 0
             while True:
                 data = client_sock.recv(2048)
                 if not data:
