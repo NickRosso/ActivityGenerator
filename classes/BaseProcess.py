@@ -34,3 +34,9 @@ class BaseProcess(ABC):
         self.userName = process.username() #overriding BaseProcess username since we are spawning a new process
         logger = Logger.Logger(self.logFormat, self)
         logger.writeLog()
+
+    def csv_log_format(self):
+        return f"{self.processID},{self.userName},{self.command},{self.commandOptions}"
+
+    def tsv_log_format(self):
+        return f"{self.processID}\t{self.userName}\t{self.command}\t{self.commandOptions}"

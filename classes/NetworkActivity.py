@@ -49,7 +49,7 @@ class NetworkActivity(BaseProcess):
             client_sock.sendall(self.data)
             client_sock.shutdown(socket.SHUT_WR)
 
-            # Receive some data back.
+            # Receive data
             chunks = []
             while True:
                 data = client_sock.recv(2048)
@@ -65,3 +65,9 @@ class NetworkActivity(BaseProcess):
 
         logger = Logger.Logger(self.logFormat, self)
         logger.writeLog()
+
+    def csv_log_format(self):
+        return f"{self.processID},{self.userName},{self.processName},{self.dest_hostname},{self.dest_port} {self.src_hostname},{self.src_port},{self.sentDataSize},{self.receivedDataSize}"
+
+    def tsv_log_format(self):
+        return f"{self.processID}\t{self.userName}\t{self.processName}\t{self.dest_hostname}\t{self.dest_port} {self.src_hostname}\t{self.src_port}\t{self.sentDataSize}\t{self.receivedDataSize}"
