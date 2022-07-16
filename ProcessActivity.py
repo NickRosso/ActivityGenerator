@@ -1,8 +1,9 @@
-import logging as processLog
+
 from subprocess import Popen, PIPE
 import getpass
+import Logger as Logger
 
-class Process():
+class ProcessActivity():
     """The process class contains information about a process that can be started the Popen.
         Attibutes: 
         - processID: ID of a started process. This is not set till startProcess is called.
@@ -25,27 +26,9 @@ class Process():
         new_process = Popen([self.processPath, self.processArguments], stdout=PIPE, stderr=PIPE)
         print(new_process.communicate()) #printing process output for testing purposes
         self.processID = new_process.pid
-        self.writeLog()
+        logger = Logger.Logger(self.logFormat, self)
+        logger.writeLog()
 
-    def formatLog(self):
-        """This class method sets the log format based on the log format defined in the Process"""
-        if self.logFormat == 'CSV':
-            processLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
-                level=processLog.INFO,
-                datefmt='%Y-%m-%d %H:%M:%S')
-            return f"{self.processID},{self.userName},{self.processPath},{self.processArguments}"
-
-        elif self.logFormat == 'TSV':
-            processLog.basicConfig(filename="log.tsv", format='%(asctime)s%(msecs)03d\t%(message)s',
-                level=processLog.INFO,
-                datefmt='%Y-%m-%d %H:%M:%S')
-            return f"{self.processID}\t{self.userName}\t{self.processPath}\t{self.processArguments}"
-
-    def writeLog(self):
-        """This method formats the log and writes it based on the proccessLog config"""
-        log_content = self.formatLog()
-        processLog.info(log_content)
-
-process = Process(processPath='pwd', processArguments="--help", logFormat="TSV")
-process = Process(processPath="./test_executables/hello_world.sh", logFormat="TSV")
-process = Process(processPath="ls", processArguments="--name", logFormat="TSV")
+process = ProcessActivity(processPath='pwd', processArguments="--help", logFormat="TSV")
+process = ProcessActivity(processPath="./test_executables/hello_world.sh", logFormat="TSV")
+process = ProcessActivity(processPath="ls", processArguments="--name", logFormat="TSV")
