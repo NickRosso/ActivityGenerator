@@ -5,9 +5,6 @@ import json
 
 if __name__ == "__main__":
     log_format = "CSV"
-    file_creation_command = "touch"
-    file_deletion_command = "rm"
-    process_path = '/mnt/c/Users/12243/Documents/Git/Activity_Generator/'
     f = open("activity.json")
     data = json.load(f)
     for process in data['ProcessActivity']:
