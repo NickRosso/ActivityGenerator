@@ -20,8 +20,8 @@ class BaseProcess(ABC):
         self.commandOptions = commandOptions
         self.logFormat = logFormat
         process = psutil.Process(os.getpid())
-        self.processID = os.getpid() #proccess ID does not get set till startProcess is called
-        self.userName = process.username() #checks the environment variables LOGNAME, USER, LNAME and USERNAME
+        self.processID = os.getpid() #storing current process's pid
+        self.userName = process.username() #storing current username
         self.processName = process.name()
         
 
