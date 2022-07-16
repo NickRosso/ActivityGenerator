@@ -2,6 +2,7 @@
 from subprocess import Popen, PIPE
 import classes.Logger as Logger
 import psutil
+import os
 from abc import ABC
 
 class BaseProcess(ABC):
@@ -18,9 +19,10 @@ class BaseProcess(ABC):
         self.command = command
         self.commandOptions = commandOptions
         self.logFormat = logFormat
-        self._processID = None #proccess ID does not get set till startProcess is called
-        self._userName = None #checks the environment variables LOGNAME, USER, LNAME and USERNAME
-        self._processName = None
+        process = psutil.Process(os.getpid())
+        self.processID = os.getpid() #proccess ID does not get set till startProcess is called
+        self.userName = process.username() #checks the environment variables LOGNAME, USER, LNAME and USERNAME
+        self.processName = process.name()
         
 
     def startProcess(self):

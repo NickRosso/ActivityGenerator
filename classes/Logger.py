@@ -10,7 +10,7 @@ class Logger:
         if self.format == "CSV":
             ActivityLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
             level=ActivityLog.INFO, datefmt='%Y-%m-%d %H:%M:%S')
-            
+
         elif self.format == "TSV":
             ActivityLog.basicConfig(filename="log.tsv", format='%(asctime)s%(msecs)03d\t%(message)s',
             level=ActivityLog.INFO,
@@ -35,6 +35,6 @@ class Logger:
         
         elif (type(self.activity).__name__ == "NetworkActivity"):
             if self.format == "CSV":
-                ActivityLog.info(f"{self.activity.processID},{self.activity.userName},{self.activity.processName},{self.activity.command} {self.activity.commandOptions},{self.activity.commandOptions},{self.activity.action}")
+                ActivityLog.info(f"{self.activity.processID},{self.activity.userName},{self.activity.processName},{self.activity.dest_hostname},{self.activity.dest_port} {self.activity.src_hostname},{self.activity.src_port},{self.activity.sentDataSize},{self.activity.receivedDataSize}")
             elif self.format == "TSV":
-                ActivityLog.info(f"{self.activity.processID}\t{self.activity.userName}\t{self.activity.processName}\t{self.activity.command} {self.activity.commandOptions}\t{self.activity.commandOptions}\t{self.activity.action}")
+                ActivityLog.info(f"{self.activity.processID}\t{self.activity.userName}\t{self.activity.processName}\t{self.activity.dest_hostname}\t{self.activity.dest_port} {self.activity.src_hostname}\t{self.activity.src_port}\t{self.activity.sentDataSize}\t{self.activity.receivedDataSize}")
