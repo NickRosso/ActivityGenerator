@@ -24,3 +24,9 @@ class Logger:
                 ActivityLog.info(f"{self.activity_object.processID},{self.activity_object.userName},{self.activity_object.processPath},{self.activity_object.processArguments}")
             elif self.format == "TSV":
                 ActivityLog.info(f"{self.activity_object.processID}\t{self.activity_object.userName}\t{self.activity_object.processPath}\t{self.activity_object.processArguments}")
+        
+        elif (type(self.activity_object).__name__ == "FileActivity"):
+            if self.format == "CSV":
+                ActivityLog.info(f"{self.activity_object.processID},{self.activity_object.userName},{self.activity_object.processPath}")
+            elif self.format == "TSV":
+                ActivityLog.info(f"{self.activity_object.processID}\t{self.activity_object.userName}\t{self.activity_object.processPath}")
