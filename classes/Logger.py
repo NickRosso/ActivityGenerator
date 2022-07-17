@@ -17,7 +17,7 @@ class Logger:
             datefmt='%Y-%m-%d %H:%M:%S')
 
         else:
-            ActivityLog.basicConfig(filename="log.csv", format='%(asctime)s%(msecs)03d,%(message)s',
+            ActivityLog.basicConfig(filename=f"{os.environ.get('ACTIVITY_GEN_LOG_OUTPUT_FILE')}.csv", format='%(asctime)s%(msecs)03d,%(message)s',
             level=ActivityLog.INFO, datefmt='%Y-%m-%d %H:%M:%S')
 
     def writeLog(self):

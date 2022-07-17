@@ -6,12 +6,12 @@
 - pip3 install psutil
 
 # Set ENV vars
-# linux/Mac
+#### linux/Mac
 - export ACTIVITY_GEN_LOG_FORMAT="CSV" //This sets the log format for each activity
 - export ACTIVITY_GEN_ACTIVITY_FILE="./json_activity/linux_activity.json" //sets input activities to load
 - export ACTIVITY_GEN_LOG_OUTPUT_FILE="log" //sets the output file location
 
-# windows
+#### windows
 - set ACTIVITY_GEN_LOG_FORMAT=CSV
 - set ACTIVITY_GEN_ACTIVITY_FILE=./json_activity/windows_activity.json
 - set ACTIVITY_GEN_LOG_OUTPUT_FILE=log //sets the output file location
@@ -30,14 +30,14 @@ Every process that starts via python is logged in a log file.
 
 # Output
 
-## Windows
+#### Windows
 ```
 C:\Users\12243\Documents\Git\Activity_Generator>python main.py
 Timed out connecting to google.com:81
 Started PID's: [25076, 7496, 23816, 22436, 20324, 2216, 23648, 23156, 25276, 5540, 24772, 22024, 23676, 24684, 24684]
 Start Time: 2022-07-17 10:08:30.239706 | End Time: 2022-07-17 10:08:31.415740 | Duration: 1.176034 seconds
 ```
-### CSV Output
+#### Windows CSV Output
 ```
 2022-07-17 10:08:30244,25076,DESKTOP-RAT2FLD\username,python3,main.py
 2022-07-17 10:08:30248,7496,DESKTOP-RAT2FLD\username,chdir,
@@ -63,7 +63,7 @@ Started PID's: [2828, 2830, 2831, 2833, 2835, 2837, 2839, 2841, 2843, 2845, 2847
 Start Time: 2022-07-17 10:08:25.867275 | End Time: 2022-07-17 10:08:27.000374 | Duration: 1.133099 seconds
 ```
 
-### CSV Output
+### Linux CSV Output
 ```
 2022-07-17 10:08:25870,2828,username,python3,main.py --help --too
 2022-07-17 10:08:25871,2830,username,pwd,--help
