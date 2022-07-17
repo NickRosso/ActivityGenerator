@@ -23,26 +23,26 @@ class NetworkActivity(BaseProcess):
     def __init__(self, logFormat, dest_hostname, protocol, dest_port="80", data=""):
         super().__init__(data, logFormat)
         #networkActivity specific attributes
-        self.src_hostname = None
-        self.src_port=None
         self.dest_hostname=dest_hostname
         self.dest_port=dest_port
         self.protocol = protocol
         self.data = str.encode(data) #encoding data to be used in socket connection
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.src_hostname, self.src_port = ("0.0.0.0", "0")
         self.sentDataSize = 0
         self.receivedDataSize = 0
         self.startNetworkActivity()
 
     def startNetworkActivity(self):
         # Create client socket.
-        client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_sock = self.socket
         client_sock.settimeout(1)
         try:
             # Connect to dest_host over port 
             client_sock.connect((self.dest_hostname, self.dest_port))
             #getting hosts actual IP and port
             self.dest_hostname, self.dest_port = client_sock.getpeername()
-            #getting clients actual IP and port
+            #updating clients actual IP and port that socket is using to connect back
             self.src_hostname, self.src_port = client_sock.getsockname()
             # Send some data to dest
             self.sentDataSize =len(self.data)

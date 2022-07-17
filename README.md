@@ -53,7 +53,7 @@ Start Time: 2022-07-17 10:08:30.239706 | End Time: 2022-07-17 10:08:31.415740 | 
 2022-07-17 10:08:30295,22024,DESKTOP-RAT2FLD\username,cmd.exe,del /f test.png,/f test.png,Delete
 2022-07-17 10:08:30300,23676,DESKTOP-RAT2FLD\username,cmd.exe,del /fhelp.csv,/fhelp.csv,Delete
 2022-07-17 10:08:30415,24684,DESKTOP-RAT2FLD\username,python.exe,142.250.190.110,80 192.168.1.21,65476,18,54497
-2022-07-17 10:08:31415,24684,DESKTOP-RAT2FLD\username,python.exe,google.com,81 None,None,0,0
+2022-07-17 10:08:31415,24684,DESKTOP-RAT2FLD\username,python.exe,google.com,81 0.0.0.0,0,0,0
 ```
 ## Linux
 ```
@@ -79,7 +79,7 @@ Start Time: 2022-07-17 10:08:25.867275 | End Time: 2022-07-17 10:08:27.000374 | 
 2022-07-17 10:08:25884,2849,username,sh,rm test.png,test.png,Delete
 2022-07-17 10:08:25885,2851,username,sh,rm help.csv,help.csv,Delete
 2022-07-17 10:08:25997,2827,username,python3,142.250.190.110,80 172.30.18.233,43438,18,54494
-2022-07-17 10:08:26999,2827,username,python3,google.com,81 None,None,0,0
+2022-07-17 10:08:26999,2827,username,python3,google.com,81 0.0.0.0,0,0,0
 ```
 # Troubleshooting
 - If you see expected str, bytes or os.PathLike object, not NoneType this means you need to set your environment variables to run the generator.
