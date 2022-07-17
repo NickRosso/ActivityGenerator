@@ -27,16 +27,10 @@ class BaseProcess(ABC):
 
     def startProcess(self):
         """This class method starts a process and writes a log on the activity"""
-        new_process = Popen([self.command, self.commandOptions], stdout=PIPE, stderr=PIPE)
+        new_process = Popen([self.command, self.commandOptions], shell=True, stdout=PIPE, stderr=PIPE)
         self.processID = new_process.pid
         process = psutil.Process(self.processID) #overriding BaseProcess processID since we are spawning a new process
         self.processName = process.name() #overriding BaseProcess processName since we are spawning a new process
         self.userName = process.username() #overriding BaseProcess username since we are spawning a new process
         logger = Logger.Logger(self.logFormat, self)
         logger.writeLog()
-
-    def csv_log_format(self):
-        return f"{self.processID},{self.userName},{self.command},{self.commandOptions}"
-
-    def tsv_log_format(self):
-        return f"{self.processID}\t{self.userName}\t{self.command}\t{self.commandOptions}"

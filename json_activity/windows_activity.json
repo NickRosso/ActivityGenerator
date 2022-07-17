@@ -1,0 +1,78 @@
+{
+    "ProcessActivity":[
+        {
+            "command": "chdir",
+            "commandOptions": ""
+        },
+        {
+            "command": "echo",
+            "commandOptions": ""
+        },
+        {
+            "command": "dir",
+            "commandOptions": ""
+        }  
+    ],
+    "FileActivity": [
+        {
+            "command": "echo",
+            "commandOptions": "> help.txt",
+            "action": "Create"
+        },
+        {
+            "command": "echo",
+            "commandOptions": "> test.png",
+            "action": "Create"
+        },
+        {
+            "command": "echo",
+            "commandOptions": "> help.csv",
+            "action": "Create"
+        },
+        {
+            "command": "echo",
+            "commandOptions": "> help.txt",
+            "action": "Update"
+        },
+        {
+            "command": "echo",
+            "commandOptions": "> test.png",
+            "action": "Update"
+        },
+        {
+            "command": "echo",
+            "commandOptions": "> help.csv",
+            "action": "Update"
+        },
+        {
+            "command": "del",
+            "commandOptions": "/f help.txt",
+            "action": "Delete"
+        },
+        {
+            "command": "del",
+            "commandOptions": "/f test.png",
+            "action": "Delete"
+        },
+        {
+            "command": "del",
+            "commandOptions": "/fhelp.csv",
+            "action": "Delete"
+        }
+    ],
+    "NetworkActivity": [
+        {
+            "dest_hostname": "google.com",
+            "dest_port": 80,
+            "protocol": "HTTP",
+            "data": "GET / HTTP/1.0\r\n\r\n"
+        },
+        {
+            "dest_hostname": "google.com",
+            "dest_port": 81,
+            "protocol": "HTTP",
+            "data": "GET / HTTP/1.0\r\n\r\n"
+        }
+    ]
+
+}
