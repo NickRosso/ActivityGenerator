@@ -16,48 +16,33 @@
     "FileActivity": [
         {
             "command": "echo",
-            "commandOptions": "> help.txt",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/help.txt",
             "action": "Create"
         },
         {
             "command": "echo",
-            "commandOptions": "> test.png",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/test.png",
             "action": "Create"
         },
         {
             "command": "echo",
-            "commandOptions": "> help.csv",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/help.csv",
             "action": "Create"
         },
         {
             "command": "echo",
-            "commandOptions": "> help.txt",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/help.txt",
             "action": "Update"
         },
         {
             "command": "echo",
-            "commandOptions": "> test.png",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/test.png",
             "action": "Update"
         },
         {
             "command": "echo",
-            "commandOptions": "> help.csv",
+            "commandOptions": "> C:/Users/12243/Documents/Git/Activity_Generator/help.csv",
             "action": "Update"
-        },
-        {
-            "command": "del",
-            "commandOptions": "/f help.txt",
-            "action": "Delete"
-        },
-        {
-            "command": "del",
-            "commandOptions": "/f test.png",
-            "action": "Delete"
-        },
-        {
-            "command": "del",
-            "commandOptions": "/fhelp.csv",
-            "action": "Delete"
         }
     ],
     "NetworkActivity": [
