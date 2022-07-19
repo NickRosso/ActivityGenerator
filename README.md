@@ -7,15 +7,14 @@
 
 # Set ENV vars
 #### linux/Mac
-- export ACTIVITY_GEN_LOG_FORMAT="CSV" //This sets the log format for each activity
-- export ACTIVITY_GEN_ACTIVITY_FILE="./json_activity/linux_activity.json" //sets input activities to load
-- export ACTIVITY_GEN_LOG_OUTPUT_FILE="log" //sets the output file location
+export ACTIVITY_GEN_LOG_FORMAT="CSV" 
+export ACTIVITY_GEN_ACTIVITY_FILE="./json_activity/linux_activity.json" 
+export ACTIVITY_GEN_LOG_OUTPUT_FILE="log" 
 
 #### windows
-- set ACTIVITY_GEN_LOG_FORMAT=CSV
-- set ACTIVITY_GEN_ACTIVITY_FILE=./json_activity/windows_activity.json
-- set ACTIVITY_GEN_LOG_OUTPUT_FILE=log //sets the output file location
-
+set ACTIVITY_GEN_LOG_FORMAT=CSV
+set ACTIVITY_GEN_ACTIVITY_FILE=./json_activity/windows_activity.json
+set ACTIVITY_GEN_LOG_OUTPUT_FILE=log 
 # How to Run
 - python3 main.py
 
